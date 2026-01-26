@@ -1,16 +1,12 @@
 :root {
-  --bg-night: #0f172a; --primary-night: #2563eb; --accent-night: #16a34a; --highlight-night: #f97316; --text-night: #e2e8f0;
-  --card-bg-night: rgba(15,23,42,0.7); --card-border-night: rgba(37,99,235,0.3); --header-bg-night: rgba(15,23,42,0.9); --footer-bg-night: rgba(15,23,42,0.7);
-  --bg-day: #fff; --primary-day: #1d4ed8; --accent-day: #15803d; --highlight-day: #ea580c; --text-day: #1e293b;
-  --card-bg-day: rgba(255,255,255,0.9); --card-border-day: rgba(37,99,235,0.2); --header-bg-day: rgba(255,255,255,0.95); --footer-bg-day: rgba(255,255,255,0.9);
-  --font-heading: "Poppins",sans-serif; --font-body: "Lato",sans-serif;
-  --theme-bg: var(--bg-night); --theme-primary: var(--primary-night); --theme-accent: var(--accent-night); --theme-highlight: var(--highlight-night); --theme-text: var(--text-night);
-  --theme-card-bg: var(--card-bg-night); --theme-card-border: var(--card-border-night); --theme-header-bg: var(--header-bg-night); --theme-footer-bg: var(--footer-bg-night);
-}
-
-.day-theme {
-  --theme-bg: var(--bg-day); --theme-primary: var(--primary-day); --theme-accent: var(--accent-day); --theme-highlight: var(--highlight-day); --theme-text: var(--text-day);
-  --theme-card-bg: var(--card-bg-day); --theme-card-border: var(--card-border-day); --theme-header-bg: var(--header-bg-day); --theme-footer-bg: var(--footer-bg-day);
+  --primary-blue: #1e3a8a;
+  --accent-green: #10b981;
+  --highlight-orange: #f97316;
+  --bg-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+  --sidebar-bg: #1e40af;
+  --text-white: #ffffff;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Lato", sans-serif;
 }
 
 * {
@@ -21,176 +17,212 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--theme-bg);
-  color: var(--theme-text);
-  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--text-white);
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-header {
-  background: var(--theme-header-bg);
-  backdrop-filter: blur(12px);
-  padding: 0 5%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-nav {
+.app-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--theme-text);
-}
-
-.navbar-logo {
-  height: 40px;
-  border-radius: 8px;
-}
-
-.header-icon {
-  color: var(--theme-primary);
-  font-size: 1.8rem;
-}
-
-main {
   flex: 1;
-  padding: 20px 15px;
-  display: flex;
-  justify-content: center;
+  height: calc(100vh - 40px);
+  /* Adjust for footer */
 }
 
-.container {
-  width: 100%;
-  max-width: 900px;
+/* Sidebar Styling */
+.sidebar {
+  width: 28%;
+  background: var(--sidebar-bg);
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.glass {
-  background: var(--theme-card-bg);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--theme-card-border);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: background 0.5s ease, border 0.5s ease;
-}
-
-.top-info {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
-#lokasi {
+.sidebar-logo {
+  max-width: 140px;
+  margin-bottom: 20px;
+}
+
+.clock-section {
+  text-align: center;
+}
+
+#live-clock {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 4rem;
   font-weight: 700;
-  color: var(--theme-primary);
+  margin-bottom: 5px;
 }
 
 #tanggal-hari-ini {
-  font-size: 0.95rem;
-  opacity: 0.85;
+  font-size: 1.4rem;
+  opacity: 0.9;
 }
 
-.clock-display #live-clock {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--theme-text);
+#tanggal-hijri {
+  font-size: 1.1rem;
+  opacity: 0.7;
 }
 
-.next-prayer-info {
+.info-section {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.arched-frame {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-bottom: none;
+  border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+  padding: 30px 10px 0;
   text-align: center;
-  background: linear-gradient(135deg, var(--theme-highlight), #ea580c);
-  color: white;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.info-card {
+  margin-bottom: 25px;
+}
+
+.label {
+  display: inline-block;
+  padding: 5px 25px;
   border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4);
-}
-
-.next-prayer-info h2 {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
   margin-bottom: 10px;
-  opacity: 0.95;
+  color: white;
 }
 
-.next-prayer-info p {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
+.label.muadzin,
+.label.khatib {
+  background: linear-gradient(to right, #3b82f6, #10b981);
+}
+
+.info-card h2 {
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
-.jadwal-cards {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+/* Main Content Styling */
+.main-content {
+  flex: 1;
+  background: url('https://images.unsplash.com/photo-1542662565-7e4b66bae529?q=80&w=2000&auto=format&fit=crop') no-repeat center center;
+  background-size: cover;
+  position: relative;
 }
 
-.card {
-  text-align: center;
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-header {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.calligraphy {
+  width: 300px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 20px;
+}
+
+.main-header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+.main-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.location-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+}
+
+.location-watermark h2 {
+  font-size: 8rem;
+}
+
+/* Prayer Bar styling */
+.prayer-bar {
+  background: white;
+  display: flex;
+  height: 140px;
+  align-items: stretch;
+}
+
+.prayer-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 20px 10px;
+  color: #334155;
+  border-right: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
 }
 
-.card i {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-  color: var(--theme-primary);
+.prayer-box:last-child {
+  border-right: none;
 }
 
-.card h2 {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  margin-bottom: 8px;
-  color: var(--theme-text);
-}
-
-.card p {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
+.p-name {
+  font-size: 0.9rem;
   font-weight: 700;
-  color: var(--theme-primary);
+  background: var(--accent-green);
+  color: white;
+  padding: 4px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+.p-time {
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
 }
 
-.next-prayer-highlight {
-  background: rgba(249, 115, 22, 0.25);
-  border: 1px solid rgba(249, 115, 22, 0.6);
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-  transform: translateY(-6px) !important;
+.prayer-box.active {
+  background: var(--highlight-orange);
+  color: white;
 }
 
-.next-prayer-highlight i,
-.next-prayer-highlight h2,
-.next-prayer-highlight p {
-  color: white !important;
+.prayer-box.active .p-name {
+  background: white;
+  color: var(--highlight-orange);
+}
+
+/* Footer */
+footer {
+  height: 40px;
+  background: var(--sidebar-bg);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 .hidden {

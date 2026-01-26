@@ -1,96 +1,93 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jadwal Sholat - BQ Islamic Boarding School</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="#" class="logo">
-          <img
-            src="./Images/Logo-bina-qurani-islamic-boarding-school.png"
-            alt="BQ Islamic Boarding School Logo"
-            class="navbar-logo"
-          />
-          <span>BQ Islamic Boarding School</span>
-        </a>
-        <div class="header-icon">
-          <i class="fas fa-mosque"></i>
-        </div>
-      </nav>
-    </header>
 
-    <main>
-      <div class="container">
-        <div class="top-info glass">
-          <div class="location-display">
-            <h1 id="lokasi">Memuat lokasi...</h1>
-            <p id="tanggal-hari-ini">Memuat tanggal...</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jadwal Sholat - BQ Islamic Boarding School</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="app-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="./Images/Logo-bina-qurani-islamic-boarding-school.png" alt="Logo" class="sidebar-logo">
+      </div>
+
+      <div class="clock-section">
+        <h1 id="live-clock">00:00:00</h1>
+        <p id="tanggal-hari-ini">Senin, 01 Januari 2024</p>
+        <p id="tanggal-hijri">01 Ramadhan 1445 H</p>
+      </div>
+
+      <div class="info-section">
+        <div class="arched-frame">
+          <div class="info-card">
+            <span class="label muadzin">MUADZIN</span>
+            <h2 id="muadzin-name">MUHAMMAD FULAN</h2>
           </div>
-          <div class="clock-display">
-            <p id="live-clock">--:--:--</p>
+          <div class="info-card">
+            <span class="label khatib">KHATIB</span>
+            <h2 id="khatib-name">AHMAD FULAN</h2>
           </div>
         </div>
+      </div>
+    </aside>
 
-        <div id="next-prayer-info" class="next-prayer-info glass">
-          <h2>Waktu Sholat Berikutnya</h2>
-          <p>
-            <span id="next-prayer-name">---</span> dalam
-            <span id="countdown-timer">--:--:--</span>
-          </p>
+    <main class="main-content">
+      <div class="content-overlay">
+        <div class="main-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Bismillah_Calligraphy.svg" alt="Bismillah"
+            class="calligraphy">
+          <h1>PONDOK PESANTREN BINA QURANI</h1>
+          <p>Islamic School Bogor - Indonesia</p>
         </div>
 
-        <div class="jadwal-cards">
-          <div class="card glass" data-prayer="Subuh">
-            <i class="fas fa-cloud-moon"></i>
-            <h2>Subuh</h2>
-            <p id="subuh">--:--</p>
-          </div>
-          <div class="card glass" data-prayer="Dzuhur">
-            <i class="fas fa-sun"></i>
-            <h2>Dzuhur</h2>
-            <p id="dzuhur">--:--</p>
-          </div>
-          <div class="card glass" data-prayer="Ashar">
-            <i class="fas fa-cloud-sun"></i>
-            <h2>Ashar</h2>
-            <p id="ashar">--:--</p>
-          </div>
-          <div class="card glass" data-prayer="Maghrib">
-            <i class="fas fa-mountain-sun"></i>
-            <h2>Maghrib</h2>
-            <p id="maghrib">--:--</p>
-          </div>
-          <div class="card glass" data-prayer="Isya">
-            <i class="fas fa-moon"></i>
-            <h2>Isya</h2>
-            <p id="isya">--:--</p>
-          </div>
+        <div class="location-watermark">
+          <h2 id="lokasi">Bogor</h2>
         </div>
 
-
+        <div class="prayer-bar">
+          <div class="prayer-box" data-prayer="Subuh">
+            <span class="p-name">SUBUH</span>
+            <span class="p-time" id="subuh">04:30</span>
+          </div>
+          <div class="prayer-box" data-prayer="Syuruq">
+            <span class="p-name">DHUHA</span>
+            <span class="p-time" id="dhuha">07:30</span>
+          </div>
+          <div class="prayer-box" data-prayer="Dzuhur">
+            <span class="p-name">ZUHUR</span>
+            <span class="p-time" id="dzuhur">12:00</span>
+          </div>
+          <div class="prayer-box" data-prayer="Ashar">
+            <span class="p-name">ASHAR</span>
+            <span class="p-time" id="ashar">15:30</span>
+          </div>
+          <div class="prayer-box" data-prayer="Maghrib">
+            <span class="p-name">MAGHRIB</span>
+            <span class="p-time" id="maghrib">18:10</span>
+          </div>
+          <div class="prayer-box" data-prayer="Isya">
+            <span class="p-name">ISYA</span>
+            <span class="p-time" id="isya">19:10</span>
+          </div>
+        </div>
       </div>
     </main>
+  </div>
 
-    <footer>
-      <p>
-        &copy; 2025 - BQ Islamic Boarding School. Data Sholat oleh Kemenag RI.
-      </p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 - BQ Islamic Boarding School. Data Sholat oleh Kemenag RI.</p>
+  </footer>
 
-    <script src="./js/script.js"></script>
-  </body>
+  <script src="./js/script.js"></script>
+</body>
+
 </html>
