@@ -106,47 +106,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }, () => fetchTimes(coords.lat, coords.lng, "Jakarta"));
   };
 
-  const cities = [
-    { name: "Jakarta", lat: -6.2088, lng: 106.8456 }, { name: "Bandung", lat: -6.9175, lng: 107.6191 },
-    { name: "Surabaya", lat: -7.2575, lng: 112.7521 }, { name: "Medan", lat: 3.5952, lng: 98.6722 },
-    { name: "Semarang", lat: -6.9667, lng: 110.4167 }, { name: "Makassar", lat: -5.1477, lng: 119.4327 },
-    { name: "Palembang", lat: -2.9761, lng: 104.7754 }, { name: "Yogyakarta", lat: -7.7956, lng: 110.3695 },
-    { name: "Denpasar", lat: -8.6705, lng: 115.2126 }, { name: "Malang", lat: -7.9797, lng: 112.6304 }
-  ];
-
-  const citySel = document.getElementById("city-select");
-  cities.forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = JSON.stringify(c);
-    opt.textContent = c.name;
-    citySel.appendChild(opt);
-  });
-  citySel.addEventListener("change", () => {
-    const val = citySel.value;
-    if (val) {
-      const c = JSON.parse(val);
-      coords = { lat: c.lat, lng: c.lng };
-      fetchTimes(c.lat, c.lng, c.name);
-    }
-  });
-
-  const toggle = document.getElementById("manual-toggle"), form = document.getElementById("manual-input-form");
-  const apply = document.getElementById("apply-manual"), cancel = document.getElementById("cancel-manual");
-
-  toggle?.addEventListener("click", () => form.classList.toggle("hidden"));
-  apply?.addEventListener("click", () => {
-    const getTime = (id) => document.getElementById(id).value || "00:00";
-    prayerTimes = {
-      Subuh: getTime("manual-subuh"), Dzuhur: getTime("manual-dzuhur"), Ashar: getTime("manual-ashar"),
-      Maghrib: getTime("manual-maghrib"), Isya: getTime("manual-isya")
-    };
-    Object.entries(prayerTimes).forEach(([k, v]) => els.prayers[k].textContent = v);
-    els.loc.textContent = "Waktu Manual";
-    startCountdown();
-    form.classList.add("hidden");
-  });
-  cancel?.addEventListener("click", () => form.classList.add("hidden"));
-
-  document.getElementById("detect-location-button").addEventListener("click", getLocation);
   getLocation();
 });
