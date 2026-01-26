@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Sholat - BQ Islamic Boarding School</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#" class="logo">
+          <img
+            src="./Images/Logo-bina-qurani-islamic-boarding-school.png"
+            alt="BQ Islamic Boarding School Logo"
+            class="navbar-logo"
+          />
+          <span>BQ Islamic Boarding School</span>
+        </a>
+        <div class="header-icon">
+          <i class="fas fa-mosque"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="top-info glass">
+          <div class="location-display">
+            <h1 id="lokasi">Memuat lokasi...</h1>
+            <p id="tanggal-hari-ini">Memuat tanggal...</p>
+          </div>
+          <div class="clock-display">
+            <p id="live-clock">--:--:--</p>
+          </div>
+        </div>
+
+        <div id="next-prayer-info" class="next-prayer-info glass">
+          <h2>Waktu Sholat Berikutnya</h2>
+          <p>
+            <span id="next-prayer-name">---</span> dalam
+            <span id="countdown-timer">--:--:--</span>
+          </p>
+        </div>
+
+        <div class="jadwal-cards">
+          <div class="card glass" data-prayer="Subuh">
+            <i class="fas fa-cloud-moon"></i>
+            <h2>Subuh</h2>
+            <p id="subuh">--:--</p>
+          </div>
+          <div class="card glass" data-prayer="Dzuhur">
+            <i class="fas fa-sun"></i>
+            <h2>Dzuhur</h2>
+            <p id="dzuhur">--:--</p>
+          </div>
+          <div class="card glass" data-prayer="Ashar">
+            <i class="fas fa-cloud-sun"></i>
+            <h2>Ashar</h2>
+            <p id="ashar">--:--</p>
+          </div>
+          <div class="card glass" data-prayer="Maghrib">
+            <i class="fas fa-mountain-sun"></i>
+            <h2>Maghrib</h2>
+            <p id="maghrib">--:--</p>
+          </div>
+          <div class="card glass" data-prayer="Isya">
+            <i class="fas fa-moon"></i>
+            <h2>Isya</h2>
+            <p id="isya">--:--</p>
+          </div>
+        </div>
+
+        <div class="location-feature glass">
+          <select id="city-select">
+            <option value="">Pilih Kota</option>
+            <!-- Opsi kota akan diisi oleh JS -->
+          </select>
+          <button id="detect-location-button">Gunakan Lokasi Saat Ini</button>
+          <button id="manual-toggle" class="manual-toggle" title="Atur Waktu Manual">
+            <i class="fas fa-cog"></i>
+          </button>
+        </div>
+
+        <div id="manual-input-form" class="manual-input-form glass hidden">
+          <h3>Atur Waktu Sholat Manual</h3>
+          <div class="manual-inputs">
+            <label for="manual-subuh">Subuh:</label>
+            <input type="time" id="manual-subuh" value="04:00">
+            <label for="manual-dzuhur">Dzuhur:</label>
+            <input type="time" id="manual-dzuhur" value="12:00">
+            <label for="manual-ashar">Ashar:</label>
+            <input type="time" id="manual-ashar" value="15:00">
+            <label for="manual-maghrib">Maghrib:</label>
+            <input type="time" id="manual-maghrib" value="18:00">
+            <label for="manual-isya">Isya:</label>
+            <input type="time" id="manual-isya" value="19:30">
+          </div>
+          <button id="apply-manual">Terapkan</button>
+          <button id="cancel-manual">Batal</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 - BQ Islamic Boarding School. Data Sholat oleh Kemenag RI.
+      </p>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
