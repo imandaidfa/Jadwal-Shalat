@@ -18,17 +18,15 @@
 
 body {
   font-family: var(--font-body);
-  background: #000;
+  
   color: var(--text-white);
-  height: 100vh;
+ 
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ 
 }
 
 .bg {
-  position: relative;
+  position: absolute;
   width: 121em;
   height: 68em;
   overflow: hidden;
