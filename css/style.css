@@ -1,12 +1,13 @@
 :root {
   --primary-blue: #1e3a8a;
+  --light-blue: #3b82f6;
   --accent-green: #10b981;
   --highlight-orange: #f97316;
-  --bg-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
-  --sidebar-bg: #1e40af;
   --text-white: #ffffff;
   --font-heading: "Poppins", sans-serif;
   --font-body: "Lato", sans-serif;
+  --sidebar-gradient: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+  --pill-gradient: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
 }
 
 * {
@@ -17,103 +18,131 @@
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-gradient);
+  background: #000;
   color: var(--text-white);
   height: 100vh;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.app-wrapper {
+.bg {
+  position: relative;
+  width: 121em;
+  height: 68em;
+  overflow: hidden;
   display: flex;
-  flex: 1;
-  height: calc(100vh - 40px);
-  /* Adjust for footer */
+  background: #fff;
+  font-size: 16px;
+  /* Base for em */
 }
 
 /* Sidebar Styling */
 .sidebar {
   width: 28%;
-  background: var(--sidebar-bg);
-  padding: 40px 20px;
+  background: var(--sidebar-gradient);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+  padding: 40px 20px;
+  position: relative;
   z-index: 10;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar-logo {
-  max-width: 140px;
-  margin-bottom: 20px;
+  max-width: 120px;
+  margin-bottom: 40px;
 }
 
 .clock-section {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 #live-clock {
   font-family: var(--font-heading);
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 #tanggal-hari-ini {
   font-size: 1.4rem;
-  opacity: 0.9;
+  margin-bottom: 5px;
 }
 
 #tanggal-hijri {
-  font-size: 1.1rem;
-  opacity: 0.7;
+  font-size: 1rem;
+  opacity: 0.8;
 }
 
 .info-section {
   width: 100%;
-  margin-top: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .arched-frame {
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-bottom: none;
-  border-radius: 50% 50% 0 0 / 20% 20% 0 0;
-  padding: 30px 10px 0;
-  text-align: center;
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
+  background: #fff;
+  border-radius: 200px 200px 0 0;
+  padding: 40px 20px 20px;
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
+  overflow: hidden;
+  height: 350px;
+}
+
+.pattern-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-image:
+    radial-gradient(circle at 100% 150%, #1e3a8a 24%, white 25%, white 28%, #1e3a8a 29%, #1e3a8a 36%, white 36%, white 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0 150%, #1e3a8a 24%, white 25%, white 28%, #1e3a8a 29%, #1e3a8a 36%, white 36%, white 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50% 100%, white 10%, #1e3a8a 11%, #1e3a8a 23%, white 24%, white 30%, #1e3a8a 31%, #1e3a8a 43%, white 44%, white 50%, #1e3a8a 51%, #1e3a8a 63%, white 64%, white 71%, transparent 71%);
+  background-size: 40px 40px;
+}
+
+.info-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 .info-card {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .label {
   display: inline-block;
-  padding: 5px 25px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  background: var(--pill-gradient);
+  color: #fff;
+  padding: 8px 30px;
+  border-radius: 25px;
   font-weight: 700;
+  font-size: 0.9rem;
   margin-bottom: 10px;
-  color: white;
-}
-
-.label.muadzin,
-.label.khatib {
-  background: linear-gradient(to right, #3b82f6, #10b981);
 }
 
 .info-card h2 {
-  font-size: 1.2rem;
+  color: #1e293b;
+  font-size: 1.4rem;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* Main Content Styling */
 .main-content {
   flex: 1;
-  background: url('https://images.unsplash.com/photo-1542662565-7e4b66bae529?q=80&w=2000&auto=format&fit=crop') no-repeat center center;
+  background: url('../Images/Home-Page-Jam-Masjid.png') no-repeat center center;
   background-size: cover;
   position: relative;
 }
@@ -124,8 +153,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -133,19 +161,20 @@ body {
 
 .main-header {
   text-align: center;
+  color: #fff;
   padding-top: 40px;
 }
 
 .calligraphy {
-  width: 300px;
+  width: 350px;
   filter: brightness(0) invert(1);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .main-header h1 {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  letter-spacing: 2px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .main-header p {
@@ -153,24 +182,28 @@ body {
   opacity: 0.9;
 }
 
-.location-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.05;
-}
-
-.location-watermark h2 {
-  font-size: 8rem;
-}
-
 /* Prayer Bar styling */
-.prayer-bar {
-  background: white;
-  display: flex;
+.prayer-bar-container {
+  background: #fff;
   height: 140px;
-  align-items: stretch;
+  display: flex;
+  position: relative;
+}
+
+.prayer-pattern {
+  width: 80px;
+  opacity: 0.1;
+  background-image:
+    linear-gradient(45deg, #1e3a8a 25%, transparent 25%),
+    linear-gradient(-45deg, #1e3a8a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1e3a8a 75%),
+    linear-gradient(-45deg, transparent 75%, #1e3a8a 75%);
+  background-size: 20px 20px;
+}
+
+.prayer-bar {
+  flex: 1;
+  display: flex;
 }
 
 .prayer-box {
@@ -179,9 +212,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #334155;
+  color: #1e293b;
   border-right: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
 }
 
 .prayer-box:last-child {
@@ -189,40 +221,39 @@ body {
 }
 
 .p-name {
+  background: var(--accent-green);
+  color: #fff;
+  padding: 4px 20px;
+  border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 700;
-  background: var(--accent-green);
-  color: white;
-  padding: 4px 15px;
-  border-radius: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .p-time {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   font-family: var(--font-heading);
 }
 
 .prayer-box.active {
   background: var(--highlight-orange);
-  color: white;
+  color: #000;
 }
 
 .prayer-box.active .p-name {
-  background: white;
-  color: var(--highlight-orange);
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
 }
 
 /* Footer */
-footer {
-  height: 40px;
-  background: var(--sidebar-bg);
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
+.footer-note {
+  position: absolute;
+  bottom: 150px;
+  right: 20px;
   font-size: 0.8rem;
-  opacity: 0.8;
+  color: #fff;
+  opacity: 0.6;
 }
 
 .hidden {

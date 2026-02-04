@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="app-wrapper">
+  <div class="bg">
     <aside class="sidebar">
       <div class="sidebar-header">
         <img src="./Images/Logo-bina-qurani-islamic-boarding-school.png" alt="Logo" class="sidebar-logo">
@@ -28,13 +28,16 @@
 
       <div class="info-section">
         <div class="arched-frame">
-          <div class="info-card">
-            <span class="label muadzin">MUADZIN</span>
-            <h2 id="muadzin-name">MUHAMMAD FULAN</h2>
-          </div>
-          <div class="info-card">
-            <span class="label khatib">KHATIB</span>
-            <h2 id="khatib-name">AHMAD FULAN</h2>
+          <div class="pattern-bg"></div>
+          <div class="info-content">
+            <div class="info-card">
+              <span class="label muadzin">MUADZIN</span>
+              <h2 id="muadzin-name">MUHAMMAD FULAN</h2>
+            </div>
+            <div class="info-card">
+              <span class="label khatib">KHATIB</span>
+              <h2 id="khatib-name">AHMAD FULAN</h2>
+            </div>
           </div>
         </div>
       </div>
@@ -43,49 +46,50 @@
     <main class="main-content">
       <div class="content-overlay">
         <div class="main-header">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Bismillah_Calligraphy.svg" alt="Bismillah"
-            class="calligraphy">
+          <div class="arabic-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Bismillah_Calligraphy.svg" alt="Bismillah"
+              class="calligraphy">
+          </div>
           <h1>PONDOK PESANTREN BINA QURANI</h1>
           <p>Islamic School Bogor - Indonesia</p>
         </div>
 
-        <div class="location-watermark">
-          <h2 id="lokasi">Bogor</h2>
-        </div>
-
-        <div class="prayer-bar">
-          <div class="prayer-box" data-prayer="Subuh">
-            <span class="p-name">SUBUH</span>
-            <span class="p-time" id="subuh">04:30</span>
-          </div>
-          <div class="prayer-box" data-prayer="Syuruq">
-            <span class="p-name">DHUHA</span>
-            <span class="p-time" id="dhuha">07:30</span>
-          </div>
-          <div class="prayer-box" data-prayer="Dzuhur">
-            <span class="p-name">ZUHUR</span>
-            <span class="p-time" id="dzuhur">12:00</span>
-          </div>
-          <div class="prayer-box" data-prayer="Ashar">
-            <span class="p-name">ASHAR</span>
-            <span class="p-time" id="ashar">15:30</span>
-          </div>
-          <div class="prayer-box" data-prayer="Maghrib">
-            <span class="p-name">MAGHRIB</span>
-            <span class="p-time" id="maghrib">18:10</span>
-          </div>
-          <div class="prayer-box" data-prayer="Isya">
-            <span class="p-name">ISYA</span>
-            <span class="p-time" id="isya">19:10</span>
+        <div class="prayer-bar-container">
+          <div class="prayer-pattern"></div>
+          <div class="prayer-bar">
+            <div class="prayer-box" data-prayer="Subuh">
+              <span class="p-name">SUBUH</span>
+              <span class="p-time" id="subuh">04:30</span>
+            </div>
+            <div class="prayer-box" data-prayer="Syuruq">
+              <span class="p-name">DHUHA</span>
+              <span class="p-time" id="dhuha">07:30</span>
+            </div>
+            <div class="prayer-box active" data-prayer="Dzuhur">
+              <span class="p-name">ZUHUR</span>
+              <span class="p-time" id="dzuhur">12:00</span>
+            </div>
+            <div class="prayer-box" data-prayer="Ashar">
+              <span class="p-name">ASHAR</span>
+              <span class="p-time" id="ashar">15:30</span>
+            </div>
+            <div class="prayer-box" data-prayer="Maghrib">
+              <span class="p-name">MAGHRIB</span>
+              <span class="p-time" id="maghrib">18:10</span>
+            </div>
+            <div class="prayer-box" data-prayer="Isya">
+              <span class="p-name">ISYA</span>
+              <span class="p-time" id="isya">19:10</span>
+            </div>
           </div>
         </div>
       </div>
     </main>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 - BQ Islamic Boarding School. Data Sholat oleh Kemenag RI.</p>
-  </footer>
+    <footer class="footer-note">
+      <p>&copy; 2025 - BQ Islamic Boarding School. Data Sholat oleh Kemenag RI.</p>
+    </footer>
+  </div>
 
   <script src="./js/script.js"></script>
 </body>
