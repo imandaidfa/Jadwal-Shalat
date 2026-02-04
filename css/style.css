@@ -18,11 +18,11 @@
 
 body {
   font-family: var(--font-body);
-  
+
   color: var(--text-white);
- 
+
   overflow: hidden;
- 
+
 }
 
 .bg {
@@ -244,15 +244,6 @@ body {
   color: #000;
 }
 
-/* Footer */
-.footer-note {
-  position: absolute;
-  bottom: 150px;
-  right: 20px;
-  font-size: 0.8rem;
-  color: #fff;
-  opacity: 0.6;
-}
 
 .hidden {
   display: none !important;
