@@ -36,7 +36,7 @@ Aplikasi web dashboard untuk menampilkan jadwal sholat real-time yang dirancang 
 - `index.html`: File utama aplikasi.
 - `css/style.css`: File styling utama.
 - `js/`: Berisi skrip logika waktu dan jadwal sholat.
-- `Images/`: Aset gambar dan logo.
+- `images/`: Aset gambar dan logo.
 - `docs/`: Dokumentasi tambahan dan analisis kode.
 
 ## 📄 Lisensi

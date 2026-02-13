@@ -40,7 +40,7 @@ body {
 .sidebar {
   width: 28%;
   background:
-    url('../Images/Islamic-Ornament.png') no-repeat center bottom / auto 60%,
+    url('../images/Islamic-Ornament.png') no-repeat center bottom / auto 60%,
     var(--sidebar-gradient);
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@ body {
 /* Main Content Styling */
 .main-content {
   flex: 1;
-  background: url('../Images/Gedung-Bina-Qurani-1.jpg') no-repeat center center;
+  background: url('../images/Gedung-Bina-Qurani-1.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
 }
