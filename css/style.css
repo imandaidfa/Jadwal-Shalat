@@ -140,6 +140,12 @@ body {
   padding-top: 40px;
 }
 
+.header-image {
+  max-width: 80%;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
 .calligraphy {
   width: 350px;
   filter: brightness(0) invert(1);
