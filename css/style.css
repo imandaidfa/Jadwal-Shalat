@@ -231,3 +231,113 @@ body {
 .hidden {
   display: none !important;
 }
+
+/* Iqomah Overlay Styling */
+#iqomah-overlay,
+#prayer-completion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#iqomah-overlay {
+  background: var(--sidebar-gradient);
+  background-attachment: fixed;
+}
+
+#prayer-completion-overlay {
+  background: #000;
+}
+
+.iqomah-content,
+.completion-content {
+  color: var(--text-white);
+  padding: 40px;
+}
+
+.iqomah-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.iqomah-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-heading);
+  margin-bottom: 50px;
+}
+
+.timer-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  border-radius: 20px;
+  min-width: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.iqomah-timer span {
+  font-size: 15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.timer-separator {
+  font-size: 10rem !important;
+  margin: 0 20px;
+  animation: blink 1s infinite;
+}
+
+.iqomah-motivation {
+  font-size: 1.8rem;
+  font-style: italic;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.completion-logo {
+  max-width: 600px;
+  margin-bottom: 40px;
+  filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.2));
+}
+
+.completion-text {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}

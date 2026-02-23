@@ -1,3 +1,5 @@
+import { startIqomah } from "./iqomah.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const els = {
     loc: document.getElementById("lokasi"),
@@ -50,6 +52,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const triggerIqomah = (name) => {
+    startIqomah(
+      name,
+      ({ timeLeft, motivation }) => {
+        document.getElementById("iqomah-overlay").classList.remove("hidden");
+        if (motivation) document.getElementById("iqomah-motivation").textContent = motivation;
+
+        const m = Math.floor(timeLeft / 60), s = timeLeft % 60;
+        document.getElementById("iqomah-min").textContent = String(m).padStart(2, "0");
+        document.getElementById("iqomah-sec").textContent = String(s).padStart(2, "0");
+      },
+      () => {
+        document.getElementById("iqomah-overlay").classList.add("hidden");
+        document.getElementById("prayer-completion-overlay").classList.remove("hidden");
+        setTimeout(() => {
+          document.getElementById("prayer-completion-overlay").classList.add("hidden");
+        }, 600000); // Back after 10 mins
+      }
+    );
+  };
+
+
+
   const startCountdown = () => {
     if (!prayerTimes) return;
     const now = new Date(), today = now.toISOString().split("T")[0];
@@ -58,6 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < prayers.length; i++) {
       const dt = new Date(`${today}T${prayers[i].time}:00`);
+
+      // Trigger iqomah if exact time (or within 1 min if just loaded)
+      const diff = Math.floor((now - dt) / 1000);
+      if (diff >= 0 && diff < 60) {
+        triggerIqomah(prayers[i].name);
+      }
+
       if (dt > now) {
         next = prayers[i];
         last = i > 0 ? prayers[i - 1] : { name: "Isya", time: prayerTimes.Isya };
@@ -73,18 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
     highlightCurrent(last.name);
   };
 
-  const highlightCurrent = (name) => {
-    document.querySelectorAll(".prayer-box").forEach(c => c.classList.remove("active"));
-    document.querySelector(`.prayer-box[data-prayer="${name}"]`)?.classList.add("active");
-  };
-
-  const getLocation = async () => {
-    if (!navigator.geolocation) return fetchTimes(coords.lat, coords.lng, "Bogor");
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-      const { latitude: lat, longitude: lng } = pos.coords;
-      fetchTimes(lat, lng, "Bogor"); // For simplicity keep Bogor as school location
-    }, () => fetchTimes(coords.lat, coords.lng, "Bogor"));
-  };
-
+  setInterval(startCountdown, 60000); // Check every minute
   getLocation();
 });

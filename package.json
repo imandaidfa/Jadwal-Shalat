@@ -1,0 +1,29 @@
+{
+  "name": "jadwal-shalat",
+  "version": "1.0.0",
+  "description": "Aplikasi web dashboard untuk menampilkan jadwal sholat real-time yang dirancang khusus untuk kebutuhan display masjid atau pesantren. Aplikasi ini memiliki desain premium dengan animasi halus dan antarmuka yang responsif.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imandaidfa/Jadwal-Shalat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/imandaidfa/Jadwal-Shalat/issues"
+  },
+  "homepage": "https://github.com/imandaidfa/Jadwal-Shalat#readme",
+  "devDependencies": {
+    "jsdom": "^28.1.0",
+    "vitest": "^4.0.18"
+  }
+}
