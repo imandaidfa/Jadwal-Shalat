@@ -73,7 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   };
 
+  const highlightCurrent = (name) => {
+    Object.entries(els.prayers).forEach(([k, v]) => {
+      v.parentElement.classList.toggle("active", k === name);
+    });
+  };
 
+  const getLocation = async () => {
+    if (!navigator.geolocation) return fetchTimes(coords.lat, coords.lng, "Bogor");
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+      fetchTimes(lat, lng, "Bogor");
+    }, () => fetchTimes(coords.lat, coords.lng, "Bogor"));
+  };
 
   const startCountdown = () => {
     if (!prayerTimes) return;
