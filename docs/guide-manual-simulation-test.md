@@ -1,56 +1,48 @@
-# Panduan Simulasi Pengujian Manual - Fitur Iqomah
+# Dokumentasi Stash: cek manual fungsi iqamah
 
-Dokumen ini menjelaskan cara melakukan simulasi pengujian fitur Iqomah secara manual untuk memverifikasi alur visual tanpa menunggu waktu sholat asli.
+Dokumen ini mencatat perubahan yang disimpan dalam Git Stash dengan nama **"cek manual fungsi iqamah"**. Perubahan ini ditujukan untuk melakukan pengujian manual fitur Iqomah tanpa menunggu waktu sholat asli.
 
-## 🛠️ Persiapan Pengujian
-Pengujian dilakukan dengan memanipulasi data waktu sholat (API mock) dan mempercepat durasi hitung mundur.
+## Daftar Perubahan
 
-### 1. Manipulasi Waktu Sholat
-Buka file `js/script.js` dan cari bagian `prayerTimes`. Timpa salah satu waktu sholat dengan waktu yang 1-2 menit ke depan dari waktu sekarang.
+### 1. File: `js/iqomah.js`
+- **Tujuan**: Mempercepat durasi tunggu Iqomah untuk simulasi.
+- **Perubahan**: Mengubah durasi `Dzuhur` dari **10 menit** menjadi **1 menit**.
+- **Kode**:
+  ```javascript
+  // Sebelum
+  export const iqDurations = { Subuh: 12, Dzuhur: 10, ... };
+  // Sesudah
+  export const iqDurations = { Subuh: 12, Dzuhur: 1, ... };
+  ```
 
-*Contoh (Jika sekarang jam 14:00):*
-```javascript
-prayerTimes = {
-  // ... data lainnya
-  Ashar: "14:02", // Ganti dengan waktu target simulasi
-  // ... data lainnya
-};
-```
-
-### 2. Mempercepat Durasi Iqomah
-Buka file `js/iqomah.js`, lalu ubah nilai pada objek `iqDurations`. Gunakan angka desimal jika ingin durasi dalam hitungan detik.
-
-*Contoh (20 detik):*
-```javascript
-// 0.333 menit ≈ 20 detik
-export const iqDurations = { Subuh: 12, Dzuhur: 10, Ashar: 0.333, Maghrib: 7, Isya: 10 };
-```
-
-### 3. Mempercepat Pesan Penyelesaian
-Buka file `js/script.js`, cari bagian `setTimeout` di dalam `triggerIqomah` (saat `onComplete` dipanggil). Ubah nilai milidetik menjadi lebih kecil.
-
-*Contoh (10 detik):*
-```javascript
-setTimeout(() => {
-  document.getElementById("prayer-completion-overlay").classList.add("hidden");
-}, 10000); // 10000ms = 10 detik
-```
+### 2. File: `js/script.js`
+- **Tujuan**: Memanipulasi waktu sholat agar segera tercapai dan mempercepat pengecekan jadwal.
+- **Perubahan A**: Menimpa waktu `Dzuhur` secara statis menjadi jam **11:43**.
+  ```javascript
+  // Sebelum
+  Dzuhur: t.Dhuhr,
+  // Sesudah
+  Dzuhur: "11:43",
+  ```
+- **Perubahan B**: Mengubah interval pengecekan jadwal dari **60 detik** menjadi **1 detik** agar trigger iqomah lebih responsif saat waktu tercapai.
+  ```javascript
+  // Sebelum
+  setInterval(startCountdown, 60000);
+  // Sesudah
+  setInterval(startCountdown, 1000);
+  ```
 
 ---
 
-## 🏃 Cara Melakukan Tes
-1. Simpan semua perubahan file.
-2. Buka proyek menggunakan **Live Server** di VS Code.
-3. Tunggu hingga jam pada aplikasi mencapai waktu yang Anda tentukan di langkah 1.
-4. Perhatikan alur: **Dashboard** -> **Overlay Iqomah** -> **Pesan Penyelesaian** -> kembali ke **Dashboard**.
+## Cara Menggunakan Kembali
+Untuk mengaplikasikan kembali perubahan ini dari stash, jalankan perintah:
+```bash
+git stash pop
+```
+*Atau jika Anda memiliki banyak stash:*
+```bash
+git stash apply stash@{0}
+```
 
----
-
-## ⚠️ Membersihkan Hasil Tes (Revert)
-Setelah pengujian selesai, pastikan Anda mengembalikan kode ke kondisi semula:
-1. Hapus nilai statis waktu sholat di `script.js` (kembalikan ke `t.Asr`, dll).
-2. Kembalikan durasi iqomah di `iqomah.js` ke nilai menit yang asli (10, 7, dll).
-3. Kembalikan durasi pesan penyelesaian ke `600000` (10 menit).
-
-> [!CAUTION]
-> Jangan biarkan kode simulasi ini ter-push ke produksi (GitHub) karena akan merusak jadwal asli di masjid.
+> [!WARNING]
+> Jangan lupa untuk melakukan **revert** atau **git stash** kembali sebelum melakukan commit ke produksi, agar jadwal sholat tetap akurat sesuai API.
